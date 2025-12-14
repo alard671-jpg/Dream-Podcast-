@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دريم بودكاست - تمكين المرأة في اليمن، 4 برامج أسبوعية، Zeno Radio، SDGs 5,13,16">
+  <title>دريم بودكاست | Dream Podcast</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
 
+<!-- شريط أخبار عربي (النص يتحرك فقط) -->
+<div class="ticker ticker-ar">
+  <div class="ticker-content">
+    UNDP تدعم تمكين النساء • WPHF تطلق منح سلام • دريم بودكاست تبث 4 برامج • 237 مستوى نشر • 12,500 مستمع • تاريخ الإطلاق: 1 أغسطس 2025
+  </div>
+</div>
+
+<!-- شريط أخبار إنجليزي -->
+<div class="ticker ticker-en">
+  <div class="ticker-content">
+    UNDP supports women • WPHF launches peace grants • Dream Podcast: 4 weekly shows • 237 Reach • Launch: Aug 1, 2025
+  </div>
+</div>
+
+<!-- الساعة الأنيقة (تختفي عند التمرير) -->
+<div id="clock-widget">
+  <div id="time"></div>
+  <div id="date"></div>
+</div>
+
+<header>
+  <img src="images/logo.png" alt="شعار دريم بودكاست" class="logo">
+  <h1>دريم بودكاست</h1>
+  <p>معاً نحقق حلمك</p>
+  <button onclick="playLive()">استمع الآن</button>
+</header>
+
+<nav class="lang-switch">
+  <button class="active" data-lang="ar">العربية</button>
+  <button data-lang="en">English</button>
+</nav>
+
+<main id="content-ar">
+  <section class="hero">
+    <h2>مشروع إذاعة دريم بودكاست</h2>
+    <p>صوت التنمية المستدامة والمناخ وحقوق الإنسان وبناء السلام في اليمن</p>
+    <a href="about.html" class="btn">اقرأ المزيد</a>
+  </section>
+
+  <section class="stats">
+    <h2>إحصائياتنا</h2>
+    <div class="grid">
+      <div class="card">200+<br>متابع</div>
+      <div class="card">12<br>حلقة</div>
+      <div class="card">4<br>برامج أسبوعية</div>
+      <div class="card">237<br>مستوى نشر</div>
+    </div>
+  </section>
+
+  <section class="programs-preview">
+    <h2>خارطة البرامج</h2>
+    <div class="program-cards">
+      <a href="programs.html#grandma" class="card">
+        <img src="images/programs/grandma.jpg" alt="بودكاست مع جدتي">
+        <h3>بودكاست مع جدتي</h3>
+        <p>الإثنين | 8:00 ص</p>
+      </a>
+      <!-- أضف الباقي -->
+    </div>
+    <a href="programs.html" class="btn">جميع البرامج</a>
+  </section>
+
+  <section id="live-player" class="player-hidden">
+    <iframe src="https://zeno.fm/player/dream-podcast" frameborder="0" scrolling="no"></iframe>
+    <p><a href="https://zeno.fm/" target="_blank">A Zeno.FM Station</a></p>
+  </section>
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
