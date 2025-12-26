@@ -1010,10 +1010,115 @@
         opacity: 1;
     }
     
-    .program-number {
+     .program-number {
         font-size: 4rem;
-        f
-            <!-- About Section -->
+        font-weight: 800;
+        color: var(--white);
+        opacity: 0.5;
+    }
+    
+    .program-content {
+        padding: 30px;
+        height: calc(100% - 220px);
+        display: flex;
+        flex-direction: column;
+        background: var(--white);
+        border-radius: 0 0 var(--radius) var(--radius);
+    }
+    
+    .program-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .program-tag {
+        background: var(--light-gray);
+        color: var(--primary-dark);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .program-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: var(--primary-dark);
+        font-weight: 700;
+    }
+    
+    .program-content p {
+        color: var(--medium-gray);
+        line-height: 1.7;
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .programs-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        
+        .live-card {
+            padding: 40px 30px;
+        }
+        
+        .live-header h2 {
+            font-size: 2.2rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .programs-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .program-card {
+            height: auto;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .live-card {
+            padding: 30px 20px;
+            margin-top: -30px;
+        }
+        
+        .live-header h2 {
+            font-size: 2rem;
+        }
+        
+        .live-header p {
+            font-size: 1.1rem;
+        }
+        
+        .audio-container {
+            padding: 20px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .program-card {
+            max-width: 100%;
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-content h3 {
+            font-size: 1.4rem;
+        }
+        
+        .live-section {
+            padding: 0 0 70px;
+        }
+    }
+</style>
+    <!-- About Section -->
     <section class="section about-section" id="about">
         <div class="container">
             <div class="about-content">
@@ -1523,8 +1628,180 @@
         height: 36px;
         background: var(--white);
         color: var(--primary);
-        border-radius:
-                <!-- Footer -->
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+    
+    .social-link:hover .social-icon {
+        background: var(--white);
+        color: var(--primary);
+        transform: rotate(10deg);
+    }
+    
+    .contact-form {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 40px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(138, 43, 226, 0.1);
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+        position: relative;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 1.1rem;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 18px 20px 18px 60px;
+        border-radius: var(--radius-sm);
+        border: 2px solid var(--light-gray);
+        font-family: 'Tajawal', sans-serif;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        background: var(--light-gray);
+    }
+    
+    .lang-en .form-control {
+        font-family: 'Segoe UI', 'Tajawal', sans-serif;
+    }
+    
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: var(--white);
+        box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.1);
+    }
+    
+    textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    .form-icon {
+        position: absolute;
+        right: 20px;
+        top: 50px;
+        color: var(--medium-gray);
+        font-size: 1.2rem;
+        transition: var(--transition);
+    }
+    
+    .form-control:focus + .form-icon {
+        color: var(--primary);
+    }
+    
+    .submit-btn {
+        width: 100%;
+        padding: 20px;
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        .about-content {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+        
+        .about-text .section-title {
+            text-align: center;
+        }
+        
+        .about-text .section-title h2::after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .about-image {
+            order: -1;
+        }
+        
+        .image-main {
+            height: 400px;
+        }
+        
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            padding: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .about-stats {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .feature-card {
+            padding: 20px;
+        }
+        
+        .contact-details {
+            gap: 20px;
+        }
+        
+        .contact-card {
+            padding: 20px;
+        }
+        
+        .social-links {
+            flex-direction: column;
+        }
+        
+        .social-link {
+            justify-content: center;
+        }
+        
+        .form-control {
+            padding: 16px 20px 16px 50px;
+        }
+        
+        .form-icon {
+            right: 15px;
+            top: 45px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .image-main {
+            height: 300px;
+        }
+        
+        .image-overlay {
+            padding: 20px;
+        }
+        
+        .overlay-content h3 {
+            font-size: 1.5rem;
+        }
+        
+        .contact-form {
+            padding: 25px 20px;
+        }
+    }
+</style>
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2127,7 +2404,7 @@
                     block: 'center'
                 });
                 
-                // Play audio
+                 // Play audio
                 setTimeout(() => {
                     const playPromise = audioPlayer.play();
                     
@@ -2139,4 +2416,175 @@
                                 alert('يرجى النقر على زر التشغيل في مشغل الصوت للاستماع');
                             } else {
                                 alert('Please click the play button in the audio player to listen');
-                  
+                            }
+                        });
+                    }
+                }, 500);
+            });
+        });
+        
+        // Programs button
+        const programsBtns = document.querySelectorAll('#programsBtn, #programsBtnEn');
+        
+        programsBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('programs').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:dreamfm44@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}%0D%0A` +
+                `Email: ${email}%0D%0A` +
+                `Message:%0D%0A${message}`
+            )}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            if (currentLang === 'ar') {
+                setTimeout(() => {
+                    alert(`شكراً ${name}!\n\nسيتم فتح بريدك الإلكتروني لإرسال الرسالة.`);
+                }, 100);
+            } else {
+                setTimeout(() => {
+                    alert(`Thank you ${name}!\n\nYour email client will open to send the message.`);
+                }, 100);
+            }
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            
+            if (currentLang === 'ar') {
+                alert('شكراً لك! تم اشتراكك في النشرة البريدية.');
+            } else {
+                alert('Thank you! You have subscribed to our newsletter.');
+            }
+            
+            emailInput.value = '';
+        });
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Update navbar on scroll
+            const navbar = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Skip if it's a language switch button
+                if (this.classList.contains('lang-btn')) return;
+                
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Calculate offset for fixed navbar
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open (if we add one later)
+                    if (window.innerWidth <= 992) {
+                        // Add mobile menu functionality here if needed
+                    }
+                }
+            });
+        });
+        
+        // Image error handling
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.log(`Image failed to load: ${this.src}`);
+            });
+        });
+        
+        // Audio visualizer animation loop
+        setInterval(updateVisualizer, 200);
+        
+        // Initialize audio visualizer state
+        audioPlayer.addEventListener('play', updateVisualizer);
+        audioPlayer.addEventListener('pause', updateVisualizer);
+        
+        // Force language refresh on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                setLanguage(currentLang);
+                
+                // Initialize audio player
+                if (audioPlayer.readyState >= 2) {
+                    updateVisualizer();
+                }
+            }, 100);
+        });
+        
+        // Fix for iOS Safari 100vh issue
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        
+        // Social media links verification
+        console.log('Social Media Links:');
+        console.log('Facebook:', document.querySelector('a[href*="facebook.com"]').href);
+        console.log('Instagram:', document.querySelector('a[href*="instagram.com"]').href);
+    </script>
+</body>
+</html>
+        
