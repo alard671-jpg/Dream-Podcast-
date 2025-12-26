@@ -25,8 +25,6 @@
             --light: #F8F9FA;
             --gray: #6C757D;
             --gray-light: #E9ECEF;
-            --success: #4CAF50;
-            --warning: #FFC107;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
             --radius: 16px;
@@ -146,21 +144,9 @@
             transform: translateY(-3px);
         }
         
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
         .lang-switcher {
             display: flex;
             gap: 5px;
-            margin-right: 20px;
         }
         
         .lang-btn {
@@ -252,14 +238,21 @@
         .logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             border-radius: 50%;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 800;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+            font-weight: 600;
         }
         
         .hero p {
@@ -345,440 +338,48 @@
             box-shadow: var(--shadow);
         }
         
+        .audio-player-wrapper {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
         .audio-player {
             width: 100%;
             height: 60px;
             border-radius: var(--radius-sm);
-            margin-bottom: 15px;
         }
         
-        .live-stats {
+        .audio-waves {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 6px;
+            height: 40px;
+            margin-top: 15px;
         }
         
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
+        .audio-waves span {
+            display: inline-block;
+            width: 4px;
+            background: linear-gradient(to top, var(--primary), var(--accent));
+            border-radius: 2px;
+            animation: wave 1.2s ease-in-out infinite;
         }
         
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
+        .audio-waves span:nth-child(1) { height: 10px; animation-delay: 0s; }
+        .audio-waves span:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+        .audio-waves span:nth-child(3) { height: 30px; animation-delay: 0.2s; }
+        .audio-waves span:nth-child(4) { height: 40px; animation-delay: 0.3s; }
+        .audio-waves span:nth-child(5) { height: 30px; animation-delay: 0.4s; }
+        .audio-waves span:nth-child(6) { height: 20px; animation-delay: 0.5s; }
+        .audio-waves span:nth-child(7) { height: 10px; animation-delay: 0.6s; }
         
-        /* Programs */
-        .programs-section {
-            background-color: var(--gray-light);
-        }
-        
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .program-card {
-            background-color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .program-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .program-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .program-card:hover .program-image img {
-            transform: scale(1.05);
-        }
-        
-        .program-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .program-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-dark);
-        }
-        
-        .program-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        .program-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .program-tag {
-            background-color: var(--gray-light);
-            color: var(--primary-dark);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .program-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--primary);
-            font-weight: 600;
-            margin-top: auto;
-        }
-        
-        .program-link i {
-            margin-right: 8px;
-            transition: var(--transition);
-        }
-        
-        .program-link:hover i {
-            transform: translateX(5px);
-        }
-        
-        /* About */
-        .about-section {
-            background-color: white;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            color: var(--gray);
-        }
-        
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-light);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        .feature-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: var(--primary-dark);
-        }
-        
-        .about-image {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            transition: var(--transition);
-        }
-        
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Partners */
-        .partners-section {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-        }
-        
-        .partners-section .section-title h2,
-        .partners-section .section-title p {
-            color: white;
-        }
-        
-        .partners-section .section-title::after {
-            background: linear-gradient(to right, var(--accent), var(--secondary));
-        }
-        
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            align-items: center;
-            margin-top: 40px;
-        }
-        
-        .partner-logo {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-sm);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 120px;
-            transition: var(--transition);
-        }
-        
-        .partner-logo:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .partner-logo img {
-            max-width: 100%;
-            max-height: 80px;
-            filter: brightness(0) invert(1);
-            opacity: 0.8;
-        }
-        
-        /* Contact */
-        .contact-section {
-            background-color: white;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 40px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
-        }
-        
-        .contact-info p {
-            margin-bottom: 25px;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-        
-        .contact-details {
-            margin-top: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--gray-light);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-left: 15px;
-            flex-shrink: 0;
-        }
-        
-        .contact-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--primary-dark);
-        }
-        
-        .contact-form {
-            background-color: var(--gray-light);
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border-radius: var(--radius-sm);
-            border: 1px solid #ddd;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 70px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .footer-logo p {
-            color: #aaa;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links h4,
-        .footer-contact h4 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-links h4::after,
-        .footer-contact h4::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent);
-            bottom: 0;
-            right: 0;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links ul li a {
-            color: #aaa;
-            transition: var(--transition);
-        }
-        
-        .footer-links ul li a:hover {
-            color: var(--accent);
-            padding-right: 8px;
-        }
-        
-        .footer-contact p {
-            color: #aaa;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .footer-contact i {
-            margin-left: 10px;
-            color: var(--accent);
-        }
-        
-            .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1); }
         }
         
         /* Responsive */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-image {
-                order: -1;
-            }
-        }
-        
         @media (max-width: 768px) {
             .section-title h2 {
                 font-size: 2rem;
@@ -786,6 +387,10 @@
             
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
             }
             
             .hero p {
@@ -804,14 +409,6 @@
             
             .live-section {
                 padding: 30px 20px;
-            }
-            
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .programs-grid {
-                grid-template-columns: 1fr;
             }
         }
         
@@ -833,11 +430,6 @@
                 width: 120px;
                 height: 120px;
             }
-            
-            .live-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
         }
     </style>
 </head>
@@ -851,10 +443,12 @@
                     <button class="lang-btn" id="langEn">English</button>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/share/15iyBtLaT1" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/dream.podcast.fm" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/share/15iyBtLaT1" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dream.podcast.fm" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -863,13 +457,16 @@
             <div class="container">
                 <div class="logo-container">
                     <div class="logo">
-                        <!-- يمكنك استبدال هذا برمز أو صورة الشعار -->
-                        <div style="width:100%; height:100%; background:linear-gradient(135deg, var(--primary), var(--accent)); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:2rem; font-weight:bold;">DP</div>
+                        <!-- سيتم تحميل الصورة من ملف images/logo.jpg -->
+                        <img src="images/logo.jpg" alt="شعار دريم بودكاست" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%; height:100%; background:linear-gradient(135deg, var(--primary), var(--accent)); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:2rem; font-weight:bold;\'>DP</div>'">
                     </div>
                 </div>
                 
                 <h1 data-ar>دريم بودكاست</h1>
                 <h1 data-en style="display:none;">Dream Podcast</h1>
+                
+                <div class="tagline" data-ar>معنا يتحقق حلمك</div>
+                <div class="tagline" data-en style="display:none;">With us, your dream comes true</div>
                 
                 <p data-ar>منصة صوتية تمكن الأفراد وتلهمهم لتحقيق إمكاناتهم. نقدم محتوى يعزز التنمية، ويدعم الصحة النفسية، ويعزز ثقافة السلام، ويرفع الوعي حول الزراعة المستدامة وتغير المناخ.</p>
                 <p data-en style="display:none;">An audio platform that empowers individuals and inspires them to realize their potential. We deliver content that promotes development, supports mental health, fosters a culture of peace, and raises awareness about sustainable agriculture and climate change.</p>
@@ -878,15 +475,15 @@
                     <button class="btn btn-primary" id="listenBtn" data-ar>
                         <i class="fas fa-play-circle"></i> استمع الآن
                     </button>
-                    <button class="btn btn-outline" id="programsBtn" data-ar>
-                        <i class="fas fa-podcast"></i> اكتشف البرامج
+                    <button class="btn btn-secondary" id="programsBtn" data-ar>
+                        <i class="fas fa-podcast"></i> استكشف البرامج
                     </button>
                     
                     <button class="btn btn-primary" id="listenBtnEn" data-en style="display:none;">
                         <i class="fas fa-play-circle"></i> Listen Now
                     </button>
-                    <button class="btn btn-outline" id="programsBtnEn" data-en style="display:none;">
-                        <i class="fas fa-podcast"></i> Discover Programs
+                    <button class="btn btn-secondary" id="programsBtnEn" data-en style="display:none;">
+                        <i class="fas fa-podcast"></i> Explore Programs
                     </button>
                 </div>
             </div>
@@ -906,35 +503,22 @@
             <p data-en style="display:none;">Join thousands of listeners who tune in to our exclusive live programs from all over the world.</p>
             
             <div class="live-player-container">
-                <audio class="audio-player" id="audioPlayer" controls>
-                    <source src="https://stream.zeno.fm/uapz9trqt3stv" type="audio/mpeg">
-                    <source src="https://stream.zeno.fm/uapz9trqt3stv" type="audio/ogg">
-                    <p data-ar>متصفحك لا يدعم تشغيل الصوت. يمكنك <a href="https://stream.zeno.fm/uapz9trqt3stv">النقر هنا للاستماع مباشرة</a></p>
-                    <p data-en style="display:none;">Your browser does not support the audio element. You can <a href="https://stream.zeno.fm/uapz9trqt3stv">click here to listen directly</a></p>
-                </audio>
-                
-                <div class="live-stats">
-                    <div class="stat">
-                        <span class="stat-number" id="listenersCount">2,450</span>
-                        <span class="stat-label" data-ar>مستمع الآن</span>
-                        <span class="stat-label" data-en style="display:none;">Current Listeners</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label" data-ar>بث مستمر</span>
-                        <span class="stat-label" data-en style="display:none;">24/7 Streaming</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label" data-ar>حلقة أسبوعياً</span>
-                        <span class="stat-label" data-en style="display:none;">Episodes Weekly</span>
+                <div class="audio-player-wrapper">
+                    <audio class="audio-player" id="audioPlayer" controls>
+                        <source src="https://stream.zeno.fm/uapz9trqt3stv" type="audio/mpeg">
+                        <source src="https://stream.zeno.fm/uapz9trqt3stv" type="audio/ogg">
+                        <p data-ar>متصفحك لا يدعم تشغيل الصوت. يمكنك <a href="https://stream.zeno.fm/uapz9trqt3stv">النقر هنا للاستماع مباشرة</a></p>
+                        <p data-en style="display:none;">Your browser does not support the audio element. You can <a href="https://stream.zeno.fm/uapz9trqt3stv">click here to listen directly</a></p>
+                    </audio>
+                    <div class="audio-waves" id="audioWaves">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Programs Section -->
+        <!-- Programs Section -->
     <section class="section programs-section" id="programs">
         <div class="container">
             <div class="section-title">
@@ -948,89 +532,145 @@
                 <!-- Program 1 -->
                 <div class="program-card">
                     <div class="program-image">
-                        <div style="width:100%; height:100%; background:linear-gradient(135deg, #ff9a9e, #fad0c4); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
-                            <i class="fas fa-user-friends"></i>
-                        </div>
+                        <img src="images/programs/grandma.jpg" alt="بودكاست مع جدتي" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"%23ff9a9e\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">بودكاست مع جدتي</text></svg>';">
                     </div>
                     <div class="program-content">
-                        <h3 data-ar>بودكاست مع الجدة</h3>
-                        <h3 data-en style="display:none;">Podcast with Grandma</h3>
-                        <p data-ar>دراما ساخرة تتناول قضايا المرأة من خلال قصص الجدة اليومية، تتحدى الأمثال الضارة وتدعم التمكين الاقتصادي.</p>
-                        <p data-en style="display:none;">A satirical drama addressing women's issues through daily grandma stories, challenging harmful proverbs and supporting economic empowerment.</p>
-                        <div class="program-tags">
-                            <span class="program-tag" data-ar>دراما</span>
-                            <span class="program-tag" data-en style="display:none;">Drama</span>
-                            <span class="program-tag" data-ar>تمكين المرأة</span>
-                            <span class="program-tag" data-en style="display:none;">Women Empowerment</span>
-                        </div>
-                        <a href="#" class="program-link" data-ar>
-                            <i class="fas fa-arrow-left"></i> استمع الآن
-                        </a>
-                        <a href="#" class="program-link" data-en style="display:none;">
-                            <i class="fas fa-arrow-right"></i> Listen Now
-                        </a>
+                        <h3 data-ar>بودكاست مع جدتي</h3>
+                        <h3 data-en style="display:none;">Podcast with My Grandma</h3>
+                        <p data-ar>برنامج درامي ساخر يطرح قضايا المرأة من خلال الحكايات اليومية والمواقف الطريفة التي تجسدها "الجدة" يناقش الأمثال الشعبية المغلوطة بحق المرأة، ويدين العنف ضد النساء، خصوصًا في النزاعات وما بعد النزاع. يهدف إلى تمكين النساء اقتصاديًا وتسليط الضوء على أهمية دمج النساء في سياسات الإنعاش الاقتصادي للتخفيف من حدة الفقر وآثاره.</p>
+                        <p data-en style="display:none;">A satirical dramatic program that presents women's issues through daily stories and funny situations embodied by "Grandma". It discusses popular proverbs that are wronged against women, condemns violence against women, especially in conflicts and post-conflict. It aims to economically empower women and highlight the importance of integrating women into economic recovery policies to alleviate poverty and its effects.</p>
                     </div>
                 </div>
                 
                 <!-- Program 2 -->
                 <div class="program-card">
                     <div class="program-image">
-                        <div style="width:100%; height:100%; background:linear-gradient(135deg, #a1c4fd, #c2e9fb); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
-                            <i class="fas fa-leaf"></i>
-                        </div>
+                        <img src="images/programs/greenroots.jpg" alt="بودكاست جذور خضراء" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"%23a1c4fd\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">جذور خضراء</text></svg>';">
                     </div>
                     <div class="program-content">
-                        <h3 data-ar>الجذور الخضراء</h3>
-                        <h3 data-en style="display:none;">Green Roots</h3>
-                        <p data-ar>قصة صوتية عن تأثير المناخ على الزراعة والأمن الغذائي، تناقش التنمية المستدامة والممارسات الذكية مناخياً.</p>
-                        <p data-en style="display:none;">An audio story on climate impact on agriculture and food security, discussing sustainable development and climate-smart practices.</p>
-                        <div class="program-tags">
-                            <span class="program-tag" data-ar>بيئة</span>
-                            <span class="program-tag" data-en style="display:none;">Environment</span>
-                            <span class="program-tag" data-ar>زراعة مستدامة</span>
-                            <span class="program-tag" data-en style="display:none;">Sustainable Agriculture</span>
-                        </div>
-                        <a href="#" class="program-link" data-ar>
-                            <i class="fas fa-arrow-left"></i>
-                            استمع الآن
-                        </a>
-                        <a href="#" class="program-link" data-en style="display:none;">
-                            <i class="fas fa-arrow-right"></i> Listen Now
-                        </a>
+                        <h3 data-ar>بودكاست جذور خضراء</h3>
+                        <h3 data-en style="display:none;">Green Roots Podcast</h3>
+                        <p data-ar>قصة صوتية تُبرز التحديات التي تواجه المجتمعات الريفية والبيئية في ظل التغير المناخي. يركز على أثر المناخ على الزراعة والأمن الغذائي، ويناقش حلول التنمية المستدامة والممارسات الزراعية الذكية لمواجهة التصحر وشح المياه.</p>
+                        <p data-en style="display:none;">An audio story highlighting the challenges facing rural and environmental communities under climate change. It focuses on the impact of climate on agriculture and food security, and discusses sustainable development solutions and smart agricultural practices to combat desertification and water scarcity.</p>
                     </div>
                 </div>
                 
                 <!-- Program 3 -->
                 <div class="program-card">
                     <div class="program-image">
-                        <div style="width:100%; height:100%; background:linear-gradient(135deg, #ffecd2, #fcb69f); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">
-                            <i class="fas fa-filter"></i>
-                        </div>
+                        <img src="images/programs/filter.jpg" alt="بودكاست فلتر" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"%23ffecd2\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">بودكاست فلتر</text></svg>';">
                     </div>
                     <div class="program-content">
-                        <h3 data-ar>بودكاست الفلتر</h3>
+                        <h3 data-ar>بودكاست فلتر</h3>
                         <h3 data-en style="display:none;">Filter Podcast</h3>
-                        <p data-ar>برنامج تعليمي لمكافحة المعلومات المضللة وتعزيز التحقق من الحقائق لبناء السلام وثقة المجتمع.</p>
-                        <p data-en style="display:none;">Educational program combating misinformation and promoting fact-checking to build peace and community trust.</p>
-                        <div class="program-tags">
-                            <span class="program-tag" data-ar>تعليمي</span>
-                            <span class="program-tag" data-en style="display:none;">Educational</span>
-                            <span class="program-tag" data-ar>معلومات</span>
-                            <span class="program-tag" data-en style="display:none;">Information</span>
-                        </div>
-                        <a href="#" class="program-link" data-ar>
-                            <i class="fas fa-arrow-left"></i> استمع الآن
-                        </a>
-                        <a href="#" class="program-link" data-en style="display:none;">
-                            <i class="fas fa-arrow-right"></i> Listen Now
-                        </a>
+                        <p data-ar>برنامج توعوي يحارب المعلومات المضللة والشائعات المنتشرة على وسائل التواصل الاجتماعي. يساهم في نشر ثقافة التحقق من المعلومات، ويربط بين الوعي المجتمعي وبناء السلام الدائم، مع التركيز على أهمية الإعلام المسؤول في تعزيز الثقة داخل المجتمعات.</p>
+                        <p data-en style="display:none;">An awareness program that fights misinformation and rumors spread on social media. It contributes to spreading a culture of fact-checking, links community awareness with building lasting peace, and focuses on the importance of responsible media in promoting trust within communities.</p>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="images/programs/message.jpg" alt="بودكاست رسالة" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"%23d4fc79\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">بودكاست رسالة</text></svg>';">
+                    </div>
+                    <div class="program-content">
+                        <h3 data-ar>بودكاست رسالة</h3>
+                        <h3 data-en style="display:none;">Message Podcast</h3>
+                        <p data-ar>برنامج إنساني يُبرز قصص النجاح والتحديات التي يواجهها ذوو الإعاقة والفئات المهمشة في المجتمع. يهدف إلى الدعم النفسي والتمكين المعنوي، وفتح مساحات آمنة للتعبير عن قضاياهم وحقوقهم، بما يعزز من دمجهم الفعلي في الحياة العامة وسوق العمل.</p>
+                        <p data-en style="display:none;">A humanitarian program that highlights the success stories and challenges faced by people with disabilities and marginalized groups in society. It aims to provide psychological support and moral empowerment, and open safe spaces for expressing their issues and rights, which enhances their actual integration into public life and the labor market.</p>
+                    </div>
+                </div>
+                
+                <!-- Program 5 -->
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="images/programs/bridges.jpg" alt="بودكاست جسور" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100%\" height=\"100%\" viewBox=\"0 0 400 300\"><rect width=\"100%\" height=\"100%\" fill=\"%2396e6a1\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"white\" text-anchor=\"middle\" dy=\".3em\">بودكاست جسور</text></svg>';">
+                    </div>
+                    <div class="program-content">
+                        <h3 data-ar>بودكاست جسور</h3>
+                        <h3 data-en style="display:none;">Bridges Podcast</h3>
+                        <p data-ar>برنامج حواري توعوي يفتح مساحة لصوت الفئات المختلفة في المجتمع حول السلام وأهميته في الحياة اليومية، يبرز أهمية التعايش، الحوار، وحل النزاعات، ويعرض مبادرات مجتمعية لبناء السلام والتعافي من آثار الحرب.</p>
+                        <p data-en style="display:none;">An awareness dialogue program that opens a space for the voices of different groups in society about peace and its importance in daily life. It highlights the importance of coexistence, dialogue, and conflict resolution, and presents community initiatives for building peace and recovering from the effects of war.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+<style>
+    /* Programs */
+    .programs-section {
+        background-color: var(--gray-light);
+    }
+    
+    .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+    
+    .program-card {
+        background-color: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .program-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+    }
+    
+    .program-image {
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .program-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .program-card:hover .program-image img {
+        transform: scale(1.05);
+    }
+    
+    .program-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .program-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--primary-dark);
+    }
+    
+    .program-content p {
+        color: var(--gray);
+        margin-bottom: 0;
+        flex-grow: 1;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    @media (max-width: 768px) {
+        .programs-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+        <!-- About Section -->
     <section class="section about-section" id="about">
         <div class="container">
             <div class="about-content">
@@ -1065,13 +705,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <button class="btn btn-secondary" data-ar>
-                        <i class="fas fa-info-circle"></i> اعرف المزيد عنا
-                    </button>
-                    <button class="btn btn-secondary" data-en style="display:none;">
-                        <i class="fas fa-info-circle"></i> Learn More About Us
-                    </button>
                 </div>
                 
                 <div class="about-image">
@@ -1089,36 +722,6 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="section partners-section" id="partners">
-        <div class="container">
-            <div class="section-title">
-                <h2 data-ar>شركاؤنا</h2>
-                <h2 data-en style="display:none;">Our Partners</h2>
-                <p data-ar>نعمل مع منظمات محلية ودولية لتحقيق أهدافنا المشتركة في تمكين المجتمعات</p>
-                <p data-en style="display:none;">We work with local and international organizations to achieve our shared goals of empowering communities</p>
-            </div>
-            
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <div style="font-weight:bold; font-size:1.2rem;">Partner 1</div>
-                </div>
-                <div class="partner-logo">
-                    <div style="font-weight:bold; font-size:1.2rem;">Partner 2</div>
-                </div>
-                <div class="partner-logo">
-                    <div style="font-weight:bold; font-size:1.2rem;">Partner 3</div>
-                </div>
-                <div class="partner-logo">
-                    <div style="font-weight:bold; font-size:1.2rem;">Partner 4</div>
-                </div>
-                <div class="partner-logo">
-                    <div style="font-weight:bold; font-size:1.2rem;">Partner 5</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
         <div class="container">
@@ -1129,7 +732,7 @@
                 <p data-en style="display:none;">We are here to answer your inquiries and suggestions. Feel free to contact us</p>
             </div>
             
-            <div class="contact-grid">
+            <div class="contact-content">
                 <div class="contact-info">
                     <h3 data-ar>ابقَ على تواصل</h3>
                     <h3 data-en style="display:none;">Get in Touch</h3>
@@ -1144,7 +747,7 @@
                             <div class="contact-text">
                                 <h4 data-ar>البريد الإلكتروني</h4>
                                 <h4 data-en style="display:none;">Email</h4>
-                                <p>dreamfm44@gmail.com</p>
+                                <a href="mailto:dreamfm44@gmail.com">dreamfm44@gmail.com</a>
                             </div>
                         </div>
                         
@@ -1155,19 +758,7 @@
                             <div class="contact-text">
                                 <h4 data-ar>الهاتف</h4>
                                 <h4 data-en style="display:none;">Phone</h4>
-                                <p>+967 771 455 399</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4 data-ar>العنوان</h4>
-                                <h4 data-en style="display:none;">Address</h4>
-                                <p data-ar>اليمن - صنعاء</p>
-                                <p data-en style="display:none;">Yemen - Sana'a</p>
+                                <a href="tel:+967771455399">+967 771 455 399</a>
                             </div>
                         </div>
                     </div>
@@ -1210,7 +801,206 @@
             </div>
         </div>
     </section>
-      <!-- Footer -->
+
+<style>
+    /* About */
+    .about-section {
+        background-color: white;
+    }
+    
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+    
+    .about-text h2 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: var(--primary-dark);
+    }
+    
+    .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        color: var(--gray);
+    }
+    
+    .about-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-light);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+    
+    .feature-text h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--primary-dark);
+    }
+    
+    .about-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+        width: 100%;
+        height: auto;
+        transition: var(--transition);
+    }
+    
+    .about-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    /* Contact */
+    .contact-section {
+        background-color: var(--gray-light);
+    }
+    
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-top: 40px;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary-dark);
+    }
+    
+    .contact-info p {
+        margin-bottom: 25px;
+        color: var(--gray);
+        font-size: 1.1rem;
+    }
+    
+    .contact-details {
+        margin-top: 30px;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--gray-light);
+        color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-left: 15px;
+        flex-shrink: 0;
+    }
+    
+    .contact-text h4 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: var(--primary-dark);
+    }
+    
+    .contact-text a {
+        color: var(--primary);
+        font-weight: 600;
+        transition: var(--transition);
+    }
+    
+    .contact-text a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+    }
+    
+    .contact-form {
+        background-color: white;
+        border-radius: var(--radius);
+        padding: 30px;
+        box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--dark);
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 15px;
+        border-radius: var(--radius-sm);
+        border: 1px solid #ddd;
+        font-family: 'Tajawal', sans-serif;
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+    
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+    }
+    
+    textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    @media (max-width: 992px) {
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .contact-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .about-image {
+            order: -1;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .about-features {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+        <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1220,30 +1010,20 @@
                     <p data-ar>منصة صوتية تمكن الأفراد وتلهمهم لتحقيق إمكاناتهم. نقدم محتوى يعزز التنمية، ويدعم الصحة النفسية، ويعزز ثقافة السلام.</p>
                     <p data-en style="display:none;">An audio platform that empowers individuals and inspires them to realize their potential. We deliver content that promotes development, supports mental health, and fosters a culture of peace.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/15iyBtLaT1" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dream.podcast.fm" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/15iyBtLaT1" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dream.podcast.fm" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4 data-ar>روابط سريعة</h4>
-                    <h4 data-en style="display:none;">Quick Links</h4>
-                    <ul>
-                        <li><a href="#programs" data-ar>البرامج</a><a href="#programs" data-en style="display:none;">Programs</a></li>
-                        <li><a href="#about" data-ar>من نحن</a><a href="#about" data-en style="display:none;">About Us</a></li>
-                        <li><a href="#partners" data-ar>شركاؤنا</a><a href="#partners" data-en style="display:none;">Partners</a></li>
-                        <li><a href="#contact" data-ar>تواصل معنا</a><a href="#contact" data-en style="display:none;">Contact Us</a></li>
-                    </ul>
                 </div>
                 
                 <div class="footer-contact">
                     <h4 data-ar>معلومات الاتصال</h4>
                     <h4 data-en style="display:none;">Contact Info</h4>
-                    <p><i class="fas fa-envelope"></i> dreamfm44@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +967 771 455 399</p>
-                    <p><i class="fas fa-map-marker-alt"></i> <span data-ar>اليمن - صنعاء</span><span data-en style="display:none;">Yemen - Sana'a</span></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:dreamfm44@gmail.com">dreamfm44@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+967771455399">+967 771 455 399</a></p>
                 </div>
             </div>
             
@@ -1253,6 +1033,94 @@
             </div>
         </div>
     </footer>
+
+<style>
+    /* Footer */
+    footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 70px 0 30px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    .footer-logo p {
+        color: #aaa;
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+    
+    .footer-contact h4 {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        color: white;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .footer-contact h4::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background-color: var(--accent);
+        bottom: 0;
+        right: 0;
+    }
+    
+    .footer-contact p {
+        color: #aaa;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .footer-contact i {
+        margin-left: 10px;
+        color: var(--accent);
+        width: 20px;
+    }
+    
+    .footer-contact a {
+        color: #aaa;
+        transition: var(--transition);
+    }
+    
+    .footer-contact a:hover {
+        color: var(--accent);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #aaa;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .footer-contact h4::after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+    }
+</style>
 
     <!-- JavaScript -->
     <script>
@@ -1272,11 +1140,13 @@
                 langEnBtn.classList.remove('active');
                 document.documentElement.dir = 'rtl';
                 document.documentElement.lang = 'ar';
+                document.title = "دريم بودكاست | Dream Podcast";
             } else {
                 langArBtn.classList.remove('active');
                 langEnBtn.classList.add('active');
                 document.documentElement.dir = 'ltr';
                 document.documentElement.lang = 'en';
+                document.title = "Dream Podcast | دريم بودكاست";
             }
             
             // Show/hide language elements
@@ -1297,24 +1167,63 @@
         setLanguage(currentLang);
         
         // Language button event listeners
-        langArBtn.addEventListener('click', () => setLanguage('ar'));
-        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langArBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('ar');
+        });
         
-        // Audio Player
+        langEnBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+        });
+        
+        // Audio Player with Wave Effects
         const audioPlayer = document.getElementById('audioPlayer');
+        const audioWaves = document.getElementById('audioWaves');
         const listenBtns = document.querySelectorAll('#listenBtn, #listenBtnEn');
         
+        // Initialize waves as hidden
+        audioWaves.style.display = 'none';
+        
+        // Toggle wave animation based on audio playback
+        audioPlayer.addEventListener('play', () => {
+            audioWaves.style.display = 'flex';
+        });
+        
+        audioPlayer.addEventListener('pause', () => {
+            audioWaves.style.display = 'none';
+        });
+        
+        audioPlayer.addEventListener('ended', () => {
+            audioWaves.style.display = 'none';
+        });
+        
+        // Listen button functionality
         listenBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Scroll to player
-                document.querySelector('.live-section').scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('.live-section').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
                 
                 // Play audio
-                audioPlayer.play().catch(e => {
-                    console.log('Autoplay prevented:', e);
-                    // Show play button if autoplay is blocked
-                    audioPlayer.controls = true;
-                });
+                const playPromise = audioPlayer.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => {
+                        console.log('Autoplay prevented:', e);
+                        // Show play button if autoplay is blocked
+                        audioPlayer.controls = true;
+                        
+                        // Show notification
+                        if (currentLang === 'ar') {
+                            alert('يرجى النقر على زر التشغيل في مشغل الصوت للاستماع');
+                        } else {
+                            alert('Please click the play button in the audio player to listen');
+                        }
+                    });
+                }
             });
         });
         
@@ -1323,30 +1232,14 @@
         
         programsBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('programs').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
         
-        // Simulate live listeners count
-        function updateListenersCount() {
-            const countElement = document.getElementById('listenersCount');
-            let currentCount = parseInt(countElement.textContent.replace(',', ''));
-            
-            // Random change between -50 and +100
-            const change = Math.floor(Math.random() * 150) - 50;
-            let newCount = currentCount + change;
-            
-            // Ensure count doesn't go below 1000
-            newCount = Math.max(newCount, 1000);
-            
-            // Update with formatted number
-            countElement.textContent = newCount.toLocaleString();
-        }
-        
-        // Update listeners every 30 seconds
-        setInterval(updateListenersCount, 30000);
-        
-        // Contact form submission
+        // Contact form submission with email
         const contactForm = document.getElementById('contactForm');
         
         contactForm.addEventListener('submit', (e) => {
@@ -1358,12 +1251,21 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // In a real application, you would send this data to a server
-            // For now, we'll just show an alert
+            // Create mailto link
+            const mailtoLink = `mailto:dreamfm44@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `الاسم: ${name}%0D%0A` +
+                `البريد الإلكتروني: ${email}%0D%0A` +
+                `الرسالة:%0D%0A${message}`
+            )}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
             if (currentLang === 'ar') {
-                alert(`شكراً ${name}!\n\nتم استلام رسالتك بنجاح. سنقوم بالرد عليك في أقرب وقت ممكن.`);
+                alert(`شكراً ${name}!\n\nسيتم فتح بريدك الإلكتروني لإرسال الرسالة. إذا لم يفتح تلقائياً، يرجى إرسال البريد يدوياً إلى: dreamfm44@gmail.com`);
             } else {
-                alert(`Thank you ${name}!\n\nYour message has been received successfully. We will get back to you as soon as possible.`);
+                alert(`Thank you ${name}!\n\nYour email client will open to send the message. If it doesn't open automatically, please send the email manually to: dreamfm44@gmail.com`);
             }
             
             // Reset form
@@ -1373,6 +1275,9 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                // Skip if it's a language switch button
+                if (this.classList.contains('lang-btn')) return;
+                
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
@@ -1380,16 +1285,30 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
+                    // Calculate offset for fixed header
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Add active class to nav links on scroll
-        window.addEventListener('scroll', () => {
-            // This could be expanded to highlight current section in navigation
+        // Handle image loading errors
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.log(`Failed to load image: ${this.src}`);
+            });
+        });
+        
+        // Initialize wave animation on page load if audio is playing
+        window.addEventListener('load', () => {
+            if (!audioPlayer.paused) {
+                audioWaves.style.display = 'flex';
+            }
         });
     </script>
 </body>
